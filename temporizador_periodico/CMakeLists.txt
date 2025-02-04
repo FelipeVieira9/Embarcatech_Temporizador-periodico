@@ -23,7 +23,7 @@ if (EXISTS ${picoVscode})
     include(${picoVscode})
 endif()
 # ====================================================================================
-set(PICO_BOARD pico2 CACHE STRING "Board type")
+set(PICO_BOARD pico_w CACHE STRING "Board type")
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
@@ -52,6 +52,11 @@ target_link_libraries(temporizador_periodico
 target_include_directories(temporizador_periodico PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
+
+# Add any user requested libraries
+target_link_libraries(temporizador_periodico 
+        
+        )
 
 pico_add_extra_outputs(temporizador_periodico)
 
